@@ -1,8 +1,8 @@
-import { Header } from '@/views/components/Header/Header';
+import { Register } from '@/views/components/Register';
 import { DefaultLayout } from '@/views/DefaultLayout';
 
 const register = () => {
-	return <DefaultLayout children={<Header />} />;
+	return <DefaultLayout children={<Register />} />;
 };
 
 export default register;
