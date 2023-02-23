@@ -1,8 +1,8 @@
-import { Header } from '@/views/components/Header/Header';
+import { Login } from '@/views/components/Login/Login';
 import { DefaultLayout } from '@/views/DefaultLayout';
 
 const login = () => {
-	return <DefaultLayout children={<Header />} />;
+	return <DefaultLayout children={<Login />} />;
 };
 
 export default login;

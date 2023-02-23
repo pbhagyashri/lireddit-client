@@ -1,29 +1,34 @@
-import { Paper, Container, styled } from '@mui/material';
+import { Paper, Container, styled, Box } from '@mui/material';
 import { ReactNode } from 'react';
+import { Navbar } from './components/Navbar';
 
 interface Props {
-	children: ReactNode;
+	children?: ReactNode;
 }
 
 const StyledPaper = styled(Paper)`
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: ${({ theme }) => theme.spacing(2)};
 	min-height: 100vh;
 `;
 
 const StyledContainer = styled(Container)`
 	background-color: ${({ theme }) => theme.palette.primary.light};
 	min-height: 100vh;
-	padding: ${({ theme }) => theme.spacing(3)};
+	padding-left: ${({ theme }) => theme.spacing(3)};
+	padding-right: ${({ theme }) => theme.spacing(3)};
+	padding-bottom: ${({ theme }) => theme.spacing(3)};
 `;
 
 export const DefaultLayout = ({ children }: Props) => {
 	return (
 		<StyledContainer maxWidth='xl'>
-			<StyledPaper elevation={1}>{children}</StyledPaper>
+			<StyledPaper elevation={1}>
+				<Navbar />
+				<Box display='flex' alignContent='center' justifyContent='center' minHeight={600}>
+					{children}
+				</Box>
+			</StyledPaper>
 		</StyledContainer>
 	);
 };
