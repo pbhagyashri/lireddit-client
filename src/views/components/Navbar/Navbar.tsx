@@ -1,17 +1,14 @@
-import { useMeQuery } from '../../hooks/useMeQuery/useMeQuery.generated';
 import { Box, Stack, styled, Typography } from '@mui/material';
 import { capitalize } from '../utils/intex';
-
 import { NavLink } from './NavLink';
+import { useMe } from '@/views/hooks/useMeQuery/useMe';
 
 const StyledNavbar = styled(Stack)`
 	background-color: ${({ theme }) => theme.palette.primary.main};
 `;
 
 export const Navbar = () => {
-	const { data } = useMeQuery({
-		fetchPolicy: 'no-cache',
-	});
+	const { data } = useMe();
 
 	const { username } = data?.me || {};
 

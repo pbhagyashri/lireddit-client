@@ -22,9 +22,10 @@ export const Register = () => {
 				const { data, errors } = await registerMutation({ variables: { inputs: { username, password } } });
 				if (!!errors) {
 					console.log(errors[0].message);
-				} else if (data?.register?.id) {
-					push('/');
 				}
+
+				localStorage.setItem('token', `${data?.register?.token}`);
+				push('/');
 			}}>
 			<Form>
 				<Stack spacing={2} direction='column' width={{ xs: 400, sm: 600 }} pt={5}>

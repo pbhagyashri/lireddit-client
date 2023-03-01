@@ -1,7 +1,11 @@
 mutation Register($inputs: UserInputs!) {
 	register(inputs: $inputs) {
-		id
-		username
+		token
+		user {
+			id
+			username
+			updatedAt
+			createdAt
+		}
 	}
 }
-
