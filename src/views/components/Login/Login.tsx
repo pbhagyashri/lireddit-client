@@ -1,4 +1,4 @@
-import { LoginDocument, MeDocument, MeQuery, useLoginMutation, useMeQuery } from '@/generated/graphql-types';
+import { useLoginUser } from '@/views/hooks/useLoginUser/useLoginUser';
 import { Stack, Typography } from '@mui/material';
 import { Form, Formik } from 'formik';
 import { useRouter } from 'next/router';
@@ -12,25 +12,14 @@ const initialValues = {
 };
 
 export const Login = () => {
-	const [loginMutation] = useLoginMutation();
 	const { push } = useRouter();
+	const [loginMutation] = useLoginUser();
 
 	const handleSubmit = async (username: string, password: string) => {
 		const { data } = await loginMutation({
 			variables: { inputs: { username, password } },
-			// update: (store, { data }) => {
-			// 	const meData = store.readQuery<MeQuery>({ query: MeDocument });
-
-			// 	store.writeQuery<MeQuery>({
-			// 		query: MeDocument,
-			// 		data: {
-			// 			me: { __typename: meData?.me?.__typename, id: meData?.me?.id || '', username: meData?.me?.username || '' },
-			// 		},
-			// 	});
-			// },
 		});
 
-		// TODO handle errors
 		localStorage.setItem('token', `${data?.login}`);
 		push('/');
 	};

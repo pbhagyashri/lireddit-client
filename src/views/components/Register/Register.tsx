@@ -2,8 +2,8 @@ import { Stack, Typography } from '@mui/material';
 import { Formik, Form } from 'formik';
 import { Button } from '../Button/Button';
 import { TextField } from '../TextField/TextField';
-import { useRegisterMutation } from '@/generated/graphql-types';
 import { useRouter } from 'next/router';
+import { useRegisterUser } from '@/views/hooks/useRegisterUser/useRegisterUser';
 
 const initialValues = {
 	username: '',
@@ -12,16 +12,16 @@ const initialValues = {
 
 const validationSchema = {};
 export const Register = () => {
-	const [register, { data, loading, error }] = useRegisterMutation();
+	const [registerMutation] = useRegisterUser();
 	const { push } = useRouter();
 
 	return (
 		<Formik
 			initialValues={initialValues}
 			onSubmit={async ({ username, password }) => {
-				await register({ variables: { inputs: { username, password } } });
-				if (!!error) {
-					console.log(error.message);
+				const { data, errors } = await registerMutation({ variables: { inputs: { username, password } } });
+				if (!!errors) {
+					console.log(errors[0].message);
 				} else if (data?.register?.id) {
 					push('/');
 				}
@@ -32,7 +32,7 @@ export const Register = () => {
 					<TextField type='text' label='Username' name='username' />
 					<TextField type='password' label='Password' name='password' />
 					<Stack direction='row-reverse'>
-						<Button variant='contained' type='submit' label='Register' disabled={loading} />
+						<Button variant='contained' type='submit' label='Register' />
 					</Stack>
 				</Stack>
 			</Form>

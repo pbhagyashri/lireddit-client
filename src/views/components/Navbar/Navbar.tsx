@@ -1,4 +1,4 @@
-import { useMeQuery } from '@/generated/graphql-types';
+import { useMeQuery } from '../../hooks/useMeQuery/useMeQuery.generated';
 import { Box, Stack, styled, Typography } from '@mui/material';
 import { capitalize } from '../utils/intex';
 
