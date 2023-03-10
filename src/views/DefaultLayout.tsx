@@ -7,8 +7,8 @@ interface Props {
 }
 
 const StyledPaper = styled(Paper)`
-	display: flex;
-	flex-direction: column;
+	/* display: flex;
+	flex-direction: column; */
 	min-height: 100vh;
 `;
 
@@ -25,9 +25,7 @@ export const DefaultLayout = ({ children }: Props) => {
 		<StyledContainer maxWidth='xl'>
 			<StyledPaper elevation={1}>
 				<Navbar />
-				<Box display='flex' alignContent='center' justifyContent='center' minHeight={600}>
-					{children}
-				</Box>
+				<Box p={3}>{children}</Box>
 			</StyledPaper>
 		</StyledContainer>
 	);

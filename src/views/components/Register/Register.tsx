@@ -4,6 +4,7 @@ import { Button } from '../Button/Button';
 import { TextField } from '../TextField/TextField';
 import { useRouter } from 'next/router';
 import { useRegisterUser } from '@/views/hooks/useRegisterUser/useRegisterUser';
+import { FormWrapper } from '../FormWrapper';
 
 const initialValues = {
 	username: '',
@@ -16,27 +17,29 @@ export const Register = () => {
 	const { push } = useRouter();
 
 	return (
-		<Formik
-			initialValues={initialValues}
-			onSubmit={async ({ username, password }) => {
-				const { data, errors } = await registerMutation({ variables: { inputs: { username, password } } });
-				if (!!errors) {
-					console.log(errors[0].message);
-				}
+		<FormWrapper>
+			<Formik
+				initialValues={initialValues}
+				onSubmit={async ({ username, password }) => {
+					const { data, errors } = await registerMutation({ variables: { inputs: { username, password } } });
+					if (!!errors) {
+						console.log(errors[0].message);
+					}
 
-				localStorage.setItem('token', `${data?.register?.token}`);
-				push('/');
-			}}>
-			<Form>
-				<Stack spacing={2} direction='column' width={{ xs: 400, sm: 600 }} pt={5}>
-					<Typography variant='h1'>Register</Typography>
-					<TextField type='text' label='Username' name='username' />
-					<TextField type='password' label='Password' name='password' />
-					<Stack direction='row-reverse'>
-						<Button variant='contained' type='submit' label='Register' />
+					localStorage.setItem('token', `${data?.register?.token}`);
+					push('/');
+				}}>
+				<Form>
+					<Stack spacing={2} direction='column' width={{ xs: 400, sm: 600 }} pt={5}>
+						<Typography variant='h1'>Register</Typography>
+						<TextField type='text' label='Username' name='username' />
+						<TextField type='password' label='Password' name='password' />
+						<Stack direction='row-reverse'>
+							<Button variant='contained' type='submit' label='Register' />
+						</Stack>
 					</Stack>
-				</Stack>
-			</Form>
-		</Formik>
+				</Form>
+			</Formik>
+		</FormWrapper>
 	);
 };

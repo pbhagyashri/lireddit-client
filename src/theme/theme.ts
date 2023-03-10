@@ -1,6 +1,5 @@
 import { Roboto } from '@next/font/google';
 import { createTheme } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
 import palette from './palette.json';
 
 export const roboto = Roboto({
@@ -57,6 +56,16 @@ const theme = createTheme({
 					fontSize: defaultTheme.typography.pxToRem(17),
 					fontWeight: defaultTheme.typography.fontWeightBold,
 					color: defaultTheme.palette.common.white,
+				},
+			},
+		},
+		MuiLink: {
+			styleOverrides: {
+				root: {
+					color: palette.primaryColorMain,
+					fontWeight: defaultTheme.typography.fontWeightBold,
+					textDecoration: 'none',
+					cursor: 'pointer',
 				},
 			},
 		},

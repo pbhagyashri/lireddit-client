@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import { Navbar } from '@/views/components/Navbar';
 import { DefaultLayout } from '@/views/DefaultLayout';
+import { Posts } from '@/views/components/Posts/Posts';
 
 export default function Home() {
 	return (
@@ -12,7 +12,9 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main>
-				<DefaultLayout />
+				<DefaultLayout>
+					<Posts />
+				</DefaultLayout>
 			</main>
 		</>
 	);
