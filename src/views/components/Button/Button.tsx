@@ -6,7 +6,7 @@ interface Props extends ButtonProps {
 
 export const Button = ({ label, onClick, sx, ...rest }: Props) => {
 	return (
-		<MUIButton onClick={(e) => onClick?.(e)} {...rest} size='large' sx={{ width: 200, ...sx }}>
+		<MUIButton onClick={onClick} {...rest} size='large' sx={{ width: 200, ...sx }}>
 			{label}
 		</MUIButton>
 	);
