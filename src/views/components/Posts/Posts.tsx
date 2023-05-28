@@ -10,7 +10,11 @@ export const Posts = () => {
 			<StyledNextLink href='create-post' label='Create Post' />
 			<MenuList>
 				{data?.posts.map((post) => (
-					<MenuItem disableRipple={true} disableTouchRipple={true}>
+					<MenuItem
+						disableRipple={true}
+						disableTouchRipple={true}
+						key={post.id}
+					>
 						<Stack direction='column'>
 							<Typography variant='h4'>{post.title}</Typography>
 							<Typography variant='body1'>{post.text}</Typography>

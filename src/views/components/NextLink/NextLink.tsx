@@ -14,9 +14,10 @@ export const StyledNextLink = ({ href, label }: Props) => {
 			href={href}
 			style={{
 				textDecoration: 'none',
-				color: theme.palette.primary.main,
+				color: theme.palette.common.white,
 				fontWeight: theme.typography.fontWeightBold,
-			}}>
+			}}
+		>
 			{label}
 		</Link>
 	);

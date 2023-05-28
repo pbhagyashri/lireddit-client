@@ -3,12 +3,12 @@ import { useEffect } from 'react';
 import { useMe } from '../hooks/useMeQuery/useMe';
 
 export function useIsAuth() {
-	const { data, loading } = useMe();
+	const { me, loading } = useMe();
 	const { replace, pathname } = useRouter();
 
 	useEffect(() => {
-		if (!loading && !data?.me) {
+		if (!loading && !me) {
 			replace('/login?next=' + pathname);
 		}
-	}, [loading, data]);
+	}, [loading, me]);
 }

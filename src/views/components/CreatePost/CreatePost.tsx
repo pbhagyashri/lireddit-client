@@ -5,7 +5,6 @@ import { Button } from '../Button/Button';
 import { TextField } from '../TextField/TextField';
 import { useRouter } from 'next/router';
 import { FormWrapper } from '../FormWrapper';
-import { useMe } from '@/views/hooks/useMeQuery/useMe';
 import { useEffect } from 'react';
 import { useIsAuth } from '@/views/utils/useIsAuth';
 
