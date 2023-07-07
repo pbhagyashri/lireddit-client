@@ -24,7 +24,7 @@ export const Navbar = () => {
 				<StyledNextLink href='/' label={username || ''} />
 			</Box>
 			<Stack direction='row' spacing={2}>
-				<StyledNextLink href='/' label='Home' />
+				<StyledNextLink href='/posts' label='Home' />
 				{Boolean(username) ? (
 					<Typography
 						variant='h6'
@@ -38,9 +38,10 @@ export const Navbar = () => {
 						Logout
 					</Typography>
 				) : (
-					<StyledNextLink href='/login' label='Login' />
+					<StyledNextLink href='/posts/login' label='Login' />
 				)}
-				<StyledNextLink href='/register' label='Register' />
+				<StyledNextLink href='/posts/register' label='Register' />
+				<StyledNextLink href='/posts/create-post' label='Create Post' />
 			</Stack>
 		</StyledNavbar>
 	);

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { DefaultLayout } from '@/views/DefaultLayout';
-import { Posts } from '@/views/components/Posts/Posts';
+import { Posts } from '@/views/components/Posts';
 
 export default function Home() {
 	return (
