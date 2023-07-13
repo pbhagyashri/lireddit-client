@@ -1,3 +1,4 @@
+// import { Inter } from '@next/font/google';
 import { ThemeProvider } from '@mui/material/styles';
 import Head from 'next/head';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -35,6 +36,8 @@ interface MyAppProps extends AppProps {
 	emotionCache?: EmotionCache;
 }
 
+// const inter = Inter();
+
 export default function MyApp(props: MyAppProps) {
 	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 	return (
@@ -45,7 +48,10 @@ export default function MyApp(props: MyAppProps) {
 				</Head>
 				<ThemeProvider theme={theme}>
 					<CssBaseline />
-					<Component {...pageProps} />
+					<main>
+						{/* <main className={inter.className}> */}
+						<Component {...pageProps} />
+					</main>
 				</ThemeProvider>
 			</CacheProvider>
 		</ApolloProvider>

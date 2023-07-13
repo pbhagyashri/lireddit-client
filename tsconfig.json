@@ -19,11 +19,6 @@
 			"@/*": ["./src/*"]
 		}
 	},
-	"include": [
-		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		"src/pages/posts/[postId]"
-	],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/posts/[postId]", "./jest-setup.ts"],
 	"exclude": ["node_modules"]
 }
