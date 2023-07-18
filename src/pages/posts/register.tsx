@@ -1,5 +1,5 @@
-import { Register } from '@/views/components/Register';
-import { DefaultLayout } from '@/views/DefaultLayout';
+import { DefaultLayout } from 'src/views/DefaultLayout';
+import { Register } from 'src/views/components/Register';
 
 const register = () => {
 	return <DefaultLayout children={<Register />} />;

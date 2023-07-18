@@ -16,9 +16,13 @@
 		"incremental": true,
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*"]
+			"@components/*": ["src/views/components/*"],
+			"@hooks/*": ["src/views/hooks/*"],
+			"@theme/*": ["src/theme/*"],
+			"~utils/*": ["src/views/utils/*"],
+			"@views/*": ["src/views/*"]
 		}
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/posts/[postId]", "./jest-setup.ts"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./jest-setup.ts"],
 	"exclude": ["node_modules"]
 }

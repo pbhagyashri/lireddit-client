@@ -1,18 +1,10 @@
-import { Post } from '@/generated/graphql-types';
-import {
-	Stack,
-	Typography,
-	IconButton,
-	Card,
-	CardActions,
-	CardContent,
-	Link,
-} from '@mui/material';
+import { Stack, Typography, IconButton, Card, CardActions, CardContent, Link } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { useDeletePost } from '@/views/hooks/useDeletePost';
+import { useDeletePost } from 'src/views/hooks/useDeletePost';
+import { Post } from 'src/generated/graphql-types';
 
 interface Props {
 	post: Post;
@@ -36,23 +28,14 @@ export const PostDetails = ({ post }: Props) => {
 		<Card sx={{ minWidth: '100%' }}>
 			<CardContent>
 				<Stack direction='column' spacing={2}>
-					<Typography
-						variant='h3'
-						component={isPostDetailsPage ? Typography : Link}
-						href={`/posts/${post.id}`}
-					>
+					<Typography variant='h3' component={isPostDetailsPage ? Typography : Link} href={`/posts/${post.id}`}>
 						{post?.title}
 					</Typography>
 					<Typography color='text.secondary'>{post?.text}</Typography>
 				</Stack>
 			</CardContent>
 			<CardActions>
-				<Stack
-					direction='row'
-					spacing={1}
-					justifyContent='flex-end'
-					width='100%'
-				>
+				<Stack direction='row' spacing={1} justifyContent='flex-end' width='100%'>
 					<IconButton aria-label='edit' onClick={handleEditClick}>
 						<EditIcon />
 					</IconButton>
@@ -61,8 +44,7 @@ export const PostDetails = ({ post }: Props) => {
 						onClick={() => {
 							deletePost(post.id.toString());
 							push('/posts');
-						}}
-					>
+						}}>
 						<DeleteIcon />
 					</IconButton>
 				</Stack>

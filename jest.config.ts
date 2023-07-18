@@ -3,6 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
+
 export default {
 	testEnvironment: 'jest-environment-jsdom',
 	// All imported modules in your tests should be mocked automatically
@@ -73,12 +74,6 @@ export default {
 
 	// An array of file extensions your modules use
 	moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
-
-	// A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-	moduleNameMapper: {
-		'\\.(css|less)$': '<rootDir>/tests/jest/__mocks__/styleMock.js',
-		'@next/font/(.*)': require.resolve('next/dist/build/jest/__mocks__/nextFontMock.js'),
-	},
 
 	// An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
 	// modulePathIgnorePatterns: [],
@@ -160,6 +155,16 @@ export default {
 
 	// Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
 	// timers: "real",
+	// A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
+	moduleNameMapper: {
+		'\\.(css|less)$': '<rootDir>/tests/jest/__mocks__/styleMock.js',
+		'@next/font/(.*)': require.resolve('next/dist/build/jest/__mocks__/nextFontMock.js'),
+		'@components/(.*)$': '<rootDir>/src/views/components/$1',
+		'@hooks/(.*)$': '<rootDir>/src/views/hooks/$1',
+		'@theme/(.*)$': '<rootDir>/src/theme/$1',
+		'~utils/(.*)$': '<rootDir>/src/views/utils/$1',
+		'@views/(.*)$': '<rootDir>/src/views/$1',
+	},
 
 	// A map from regular expressions to paths to transformers
 	transform: {

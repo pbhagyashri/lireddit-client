@@ -1,5 +1,4 @@
-import React from 'react';
-import { render, screen } from '../../../test-helper';
+import { render, screen } from '@views/test-helper';
 import { Button } from './Button';
 
 describe('<Button />', () => {

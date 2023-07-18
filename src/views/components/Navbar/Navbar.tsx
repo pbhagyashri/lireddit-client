@@ -1,6 +1,7 @@
-import { StyledNextLink } from '@/views/components/NextLink/NextLink';
-import { useMe } from '@/views/hooks/useMeQuery/useMe';
+import { StyledNextLink } from '@components/NextLink/NextLink';
+import { useMe } from '@hooks/useMeQuery/useMe';
 import { Box, Link, Stack, Typography, styled } from '@mui/material';
+
 import { useRouter } from 'next/router';
 
 const StyledNavbar = styled(Stack)`
@@ -13,13 +14,7 @@ export const Navbar = () => {
 	const { username } = me || {};
 
 	return (
-		<StyledNavbar
-			direction='row'
-			spacing={2}
-			justifyContent='space-between'
-			px={3}
-			py={2}
-		>
+		<StyledNavbar direction='row' spacing={2} justifyContent='space-between' px={3} py={2}>
 			<Box>
 				<StyledNextLink href='/' label={username || ''} />
 			</Box>
@@ -32,9 +27,8 @@ export const Navbar = () => {
 						color='common.white'
 						onClick={() => {
 							localStorage.removeItem('token');
-							push('/login');
-						}}
-					>
+							push('/posts/login');
+						}}>
 						Logout
 					</Typography>
 				) : (

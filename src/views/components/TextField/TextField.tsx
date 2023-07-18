@@ -1,5 +1,5 @@
-import { useFormTextField } from '@/views/hooks/useFormTextField';
 import { TextField as MUITextField, StandardTextFieldProps, InputLabel, SxProps } from '@mui/material';
+import { useFormTextField } from '~hooks/useFormTextField';
 import { ErrorMessage } from 'formik';
 
 interface Props extends StandardTextFieldProps {
@@ -11,6 +11,7 @@ interface Props extends StandardTextFieldProps {
 
 export const TextField = ({ label, type, name, sx, ...rest }: Props) => {
 	const { field } = useFormTextField(name);
+	console.log('field', rest);
 
 	return (
 		<>

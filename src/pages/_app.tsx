@@ -4,10 +4,11 @@ import Head from 'next/head';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { AppProps } from 'next/app';
-import theme from '@/theme/theme';
-import createEmotionCache from '@/theme/createEmotionCache';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import createEmotionCache from '@theme/createEmotionCache';
+import theme from '@theme/theme';
+
 
 const httpLink = createHttpLink({
 	uri: 'http://localhost:4000/posts',

@@ -1,11 +1,10 @@
-import { useLoginUser } from '@/views/hooks/useLoginUser/useLoginUser';
-import { Stack, Typography } from '@mui/material';
 import { Form, Formik } from 'formik';
 import { useRouter } from 'next/router';
-import React from 'react';
-import { Button } from '../Button/Button';
-import { FormWrapper } from '../FormWrapper';
-import { TextField } from '../TextField/TextField';
+import { Stack, Typography } from '@mui/material';
+import { FormWrapper } from '@components/FormWrapper';
+import { useLoginUser } from '@hooks/useLoginUser/useLoginUser';
+import { TextField } from '@components/TextField';
+import { Button } from '@components/Button';
 
 const initialValues = {
 	username: '',

@@ -1,10 +1,10 @@
+import { Button } from '@components/Button';
+import { FormWrapper } from '@components/FormWrapper';
+import { TextField } from '@components/TextField';
+import { useRegisterUser } from '@hooks/useRegisterUser/useRegisterUser';
 import { Stack, Typography } from '@mui/material';
 import { Formik, Form } from 'formik';
-import { Button } from '../Button/Button';
-import { TextField } from '../TextField/TextField';
 import { useRouter } from 'next/router';
-import { useRegisterUser } from '@/views/hooks/useRegisterUser/useRegisterUser';
-import { FormWrapper } from '../FormWrapper';
 
 const initialValues = {
 	username: '',

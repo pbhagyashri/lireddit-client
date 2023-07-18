@@ -4,7 +4,14 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from '@mui/material/styles';
 import { MockedProvider } from '@apollo/client/testing';
-import theme from './theme/theme';
+import theme from '@theme/theme';
+
+jest.mock('next/router', () => ({
+	useRouter: jest.fn().mockReturnValue({
+		query: {},
+		push: () => {},
+	}),
+}));
 
 interface Props {
 	children: ReactNode;

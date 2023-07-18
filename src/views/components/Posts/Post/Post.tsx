@@ -1,6 +1,6 @@
-import { useGetPost } from '@/views/hooks/useGetPost/useGetPost';
 import { useRouter } from 'next/router';
-import { PostDetails } from '@/views/components/Posts/Post/PostDetails';
+import { useGetPost } from 'src/views/hooks/useGetPost/useGetPost';
+import { PostDetails } from './PostDetails';
 
 export const Post = () => {
 	const {

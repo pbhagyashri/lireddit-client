@@ -1,9 +1,13 @@
-import { MenuList, MenuItem, Box, Link, Grid } from '@mui/material';
-import { StyledNextLink } from '../NextLink/NextLink';
-import { useGetPosts } from '@/views/hooks/useGetPosts';
-import { PostDetails } from '@/views/components/Posts/Post/PostDetails';
+import { StyledNextLink } from '@components/NextLink/NextLink';
+import { PostDetails } from '@components/Posts/Post/PostDetails';
+import { useGetPosts } from '@hooks/useGetPosts';
+import { Box, Grid } from '@mui/material';
+import { useIsAuth } from '~utils/useIsAuth';
 
 export const Posts = () => {
+	// if user is not logged in, redirect to login page
+	useIsAuth();
+
 	const { posts } = useGetPosts();
 
 	return (
