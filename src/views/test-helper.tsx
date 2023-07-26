@@ -1,9 +1,7 @@
 import { ReactElement, ReactNode } from 'react';
-import { act, render, RenderOptions } from '@testing-library/react';
-import { screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { act, render, RenderOptions, queries, within } from '@testing-library/react';
 import { ThemeProvider } from '@mui/material/styles';
-import { MockedProvider } from '@apollo/client/testing';
+import { MockedProvider, MockedResponse } from '@apollo/client/testing';
 import theme from '@theme/theme';
 
 jest.mock('next/router', () => ({
@@ -23,18 +21,21 @@ const AllTheProviders = ({ children }: Props) => (
 	</ThemeProvider>
 );
 
-const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) => {
+const customScreen = within(document.body, queries);
+const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'queries'>) =>
 	render(ui, { wrapper: AllTheProviders, ...options });
-	return { user: userEvent };
-};
 
-export async function waitForGraphQl(timeout?: number) {
-	await act(async () => {
-		await new Promise((resolve) => {
-			setTimeout(resolve, timeout || 0);
-		});
-	});
+export function apolloMockProviderWrapper(mocks: MockedResponse<Record<string, any>>) {
+	const wrapper = ({ children }: Props) => (
+		<MockedProvider mocks={[mocks]} addTypename={false}>
+			{children}
+		</MockedProvider>
+	);
+	return wrapper;
 }
 
 export * from '@testing-library/react';
-export { customRender as render, screen };
+export { customRender as render, customScreen as screen };
+
+// resources: 
+// https://dev.to/hugoliconv/testing-custom-apollo-hooks-with-react-testing-library-53k3

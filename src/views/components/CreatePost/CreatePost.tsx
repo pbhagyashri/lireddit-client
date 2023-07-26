@@ -16,7 +16,7 @@ export const CreatePost = () => {
 	const [createPostMutation] = useCreatePost();
 	const { push } = useRouter();
 
-	// if user is not logged in, redirect to login page
+	// if user is not logged in, redirect them to the login page
 	useIsAuth();
 
 	const handleCreatePost = async (title: string, text: string) => {

@@ -6,6 +6,6 @@ export function useCreatePost(options?: CreatePostMutationOptions) {
 		...options,
 		refetchQueries: [PostsDocument],
 	});
-
+	console.log('data', data);
 	return [createPostMutation, { data, loading, error }] as const;
 }
