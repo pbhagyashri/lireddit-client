@@ -28,10 +28,17 @@ export const PostDetails = ({ post }: Props) => {
 		<Card sx={{ minWidth: '100%' }} aria-label='post' role='region'>
 			<CardContent>
 				<Stack direction='column' spacing={2}>
-					<Typography variant='h3' component={isPostDetailsPage ? Typography : Link} href={`/posts/${post.id}`}>
+					<Typography
+						variant='h3'
+						component={isPostDetailsPage ? Typography : Link}
+						href={`/posts/${post.id}`}
+						role='link'
+						aria-label={post.title}>
 						{post?.title}
 					</Typography>
-					<Typography color='text.secondary'>{post?.text}</Typography>
+					<Typography color='text.secondary' variant='body2' aria-label='post body' role='heading'>
+						{post?.text}
+					</Typography>
 				</Stack>
 			</CardContent>
 			<CardActions>
