@@ -1,5 +1,5 @@
 import { StyledNextLink } from '@components/NextLink/NextLink';
-import { useMe } from '@hooks/useMeQuery/useMe';
+import { useMe } from '@hooks/useMe';
 import { Box, Link, Stack, Typography, styled } from '@mui/material';
 
 import { useRouter } from 'next/router';

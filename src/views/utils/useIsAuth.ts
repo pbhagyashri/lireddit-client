@@ -1,4 +1,4 @@
-import { useMe } from '@hooks/useMeQuery/useMe';
+import { useMe } from '@hooks/useMe';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 

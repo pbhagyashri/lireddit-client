@@ -34,8 +34,8 @@ export const Login = () => {
 				<Form>
 					<Stack spacing={2} direction='column' width={{ xs: 400, sm: 600 }} pt={5}>
 						<Typography variant='h1'>Login</Typography>
-						<TextField label='Username' type='text' name='username' />
-						<TextField label='Password' type='password' name='password' />
+						<TextField label='Username' type='text' name='username' placeholder='please enter your username' />
+						<TextField label='Password' type='password' name='password' placeholder='please enter your password' />
 						<Stack direction='row-reverse'>
 							<Button variant='contained' type='submit' label='Login' />
 						</Stack>

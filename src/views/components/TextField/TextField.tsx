@@ -22,7 +22,6 @@ export const TextField = ({ label, type, name, sx, ...rest }: Props) => {
 				{...field}
 				sx={{ ...sx }}
 				fullWidth
-				aria-label='title'
 				id={label}
 				// error={!!error}
 				// helperText={!!error ? error : undefined}

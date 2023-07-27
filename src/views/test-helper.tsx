@@ -1,5 +1,5 @@
 import { ReactElement, ReactNode } from 'react';
-import { act, render, RenderOptions, queries, within } from '@testing-library/react';
+import { render, RenderOptions, queries, within } from '@testing-library/react';
 import { ThemeProvider } from '@mui/material/styles';
 import { MockedProvider, MockedResponse } from '@apollo/client/testing';
 import theme from '@theme/theme';

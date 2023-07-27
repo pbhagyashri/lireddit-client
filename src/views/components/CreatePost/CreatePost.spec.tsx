@@ -6,13 +6,13 @@ import * as CreatePostHook from '@hooks/useCreatePost';
 jest.mock('~utils/useIsAuth');
 jest.mock('@hooks/useCreatePost');
 
-describe('CreatePost', () => {
-	const { useCreatePost } = CreatePostHook;
+describe('<CreatePost />', () => {
+	const { useCreatePost } = jest.mocked(CreatePostHook);
 
 	const postMutation = jest.fn();
 
 	beforeEach(() => {
-		(useCreatePost as jest.Mock).mockReturnValue([postMutation, { data: null, loading: false }]);
+		useCreatePost.mockReturnValue([postMutation, { error: undefined, loading: false, data: null }]);
 	});
 
 	it('should display create new post form', async () => {

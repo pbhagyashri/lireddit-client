@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useGetPost } from 'src/views/hooks/useGetPost/useGetPost';
+import { useGetPost } from '@hooks/useGetPost';
 import { PostDetails } from './PostDetails';
 
 export const Post = () => {
