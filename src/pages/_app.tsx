@@ -11,7 +11,7 @@ import theme from '@theme/theme';
 
 
 const httpLink = createHttpLink({
-	uri: 'http://localhost:4000/posts',
+	uri: 'http://localhost:4000/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {

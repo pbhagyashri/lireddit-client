@@ -6,8 +6,9 @@ import { useCreatePost } from '@hooks/useCreatePost';
 import { Form, Formik } from 'formik';
 import { useRouter } from 'next/router';
 import { useIsAuth } from '~utils/useIsAuth';
+import { CreatePostMutationVariables } from '@hooks/useCreatePost/useCreatePost.generated';
 
-const initialValues = {
+const initialValues: CreatePostMutationVariables = {
 	title: '',
 	text: '',
 };
@@ -19,14 +20,15 @@ export const CreatePost = () => {
 	// if user is not logged in, redirect them to the login page
 	useIsAuth();
 
-	const handleCreatePost = async (title: string, text: string) => {
+	const handleCreatePost = async (formValues: CreatePostMutationVariables) => {
+		const { title, text } = formValues;
 		await createPostMutation({ variables: { title, text } });
-		push('/');
+		push('/posts');
 	};
 
 	return (
 		<FormWrapper>
-			<Formik initialValues={initialValues} onSubmit={({ title, text }) => handleCreatePost(title, text)}>
+			<Formik initialValues={initialValues} onSubmit={handleCreatePost}>
 				<Form>
 					<Stack spacing={2} direction='column' width={{ xs: 400, sm: 600 }} pt={5}>
 						<Typography variant='h1'>Create Post</Typography>

@@ -21,10 +21,10 @@ export const Login = () => {
 		});
 		localStorage.setItem('token', `${data?.login}`);
 
-		if (query.next === 'string') {
+		if (typeof query.next === 'string') {
 			push(query.next);
 		} else {
-			push('/');
+			push('/posts');
 		}
 	};
 

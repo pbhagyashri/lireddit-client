@@ -7,8 +7,6 @@ interface Props {
 }
 
 const StyledPaper = styled(Paper)`
-	/* display: flex;
-	flex-direction: column; */
 	min-height: 100vh;
 `;
 

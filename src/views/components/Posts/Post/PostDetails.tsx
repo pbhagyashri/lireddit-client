@@ -52,7 +52,6 @@ export const PostDetails = ({ post }: Props) => {
 						aria-label='delete'
 						onClick={() => {
 							deletePost(post.id.toString());
-							push('/posts');
 						}}>
 						<DeleteIcon />
 					</IconButton>
