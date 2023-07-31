@@ -1,11 +1,10 @@
-query Posts {
-	posts {
+query Posts($limit: Int!, $cursor: String) {
+	posts(limit: $limit, cursor: $cursor) {
 		createdAt
-		creatorId
 		id
 		points
 		text
 		title
-		updatedAt
+		creatorId
 	}
 }

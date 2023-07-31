@@ -26,7 +26,12 @@ export const PostDetails = ({ post }: Props) => {
 
 	return (
 		<Card sx={{ minWidth: '100%' }} aria-label='post' role='region'>
-			<CardContent>
+			<CardContent
+				sx={{
+					height: 170,
+					overflow: 'auto',
+					maskImage: 'linear-gradient(to bottom, black calc(100% - 28px), transparent 100%)',
+				}}>
 				<Stack direction='column' spacing={2}>
 					<Typography
 						variant='h3'

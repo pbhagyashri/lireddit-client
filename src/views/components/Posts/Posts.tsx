@@ -4,7 +4,10 @@ import { useGetPosts } from '@hooks/useGetPosts';
 import { Box, Grid } from '@mui/material';
 
 export const Posts = () => {
-	const { posts } = useGetPosts();
+	// const today = new Date();
+	// console.log({ today });
+	// console.log(new Date().toISOString());
+	const { posts } = useGetPosts(4, '2023-07-31T05:38:25.130Z');
 
 	return (
 		<Box>
