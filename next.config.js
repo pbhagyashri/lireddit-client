@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-export const nextConfig = {
+const nextConfig = {
 	reactStrictMode: true,
 	// to fix page flickering and flashing
 	compiler: {
@@ -15,3 +15,5 @@ export const nextConfig = {
 		];
 	},
 };
+
+module.exports = nextConfig;

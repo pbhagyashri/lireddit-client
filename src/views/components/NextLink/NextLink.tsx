@@ -1,24 +1,23 @@
-import { useTheme } from '@mui/material';
+import { styled, LinkProps } from '@mui/material';
 import Link from 'next/link';
 
-interface Props {
+interface Props extends LinkProps {
 	href: string;
 	label: string;
+	sx?: LinkProps['sx'];
 }
 
-export const StyledNextLink = ({ href, label }: Props) => {
-	const theme = useTheme();
+const StyledLink = styled(Link)`
+	text-decoration: none;
+	color: ${({ theme }) => theme.palette.common.white};
+	font-weight: ${({ theme }) => theme.typography.fontWeightBold};
+	cursor: pointer;
+`;
 
+export const StyledNextLink = ({ href, label, sx }: Props) => {
 	return (
-		<Link
-			href={href}
-			style={{
-				textDecoration: 'none',
-				color: theme.palette.common.white,
-				fontWeight: theme.typography.fontWeightBold,
-			}}
-		>
+		<StyledLink href={href} sx={sx}>
 			{label}
-		</Link>
+		</StyledLink>
 	);
 };

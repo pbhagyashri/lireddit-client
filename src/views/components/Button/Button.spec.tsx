@@ -1,16 +1,17 @@
 import { render, screen } from '@views/test-helper';
 import { Button } from './Button';
+import userEvent from '@testing-library/user-event';
 
 describe('<Button />', () => {
 	const onClick = jest.fn();
 
 	it('should render the button with the text', async () => {
-		const { user } = render(<Button label='click me' onClick={onClick} />);
+		render(<Button label='click me' onClick={onClick} />);
 
-		const button = screen.getByRole('button', { name: 'my button' });
+		const button = screen.getByRole('button', { name: 'click me' });
 		expect(button).toBeInTheDocument();
 
-		await user.click(button);
+		await userEvent.click(button);
 		expect(onClick).toHaveBeenCalledTimes(1);
 	});
 });

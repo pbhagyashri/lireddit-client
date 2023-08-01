@@ -1,4 +1,3 @@
-// import { Inter } from '@next/font/google';
 import { ThemeProvider } from '@mui/material/styles';
 import Head from 'next/head';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -8,7 +7,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import createEmotionCache from '@theme/createEmotionCache';
 import theme from '@theme/theme';
-
+import { Post } from 'src/generated/graphql-types';
 
 const httpLink = createHttpLink({
 	uri: 'http://localhost:4000/graphql',
@@ -30,14 +29,29 @@ const authLink = setContext((_, { headers }) => {
 const clientSideEmotionCache = createEmotionCache();
 const client = new ApolloClient({
 	link: authLink.concat(httpLink),
-	cache: new InMemoryCache(),
+	cache: new InMemoryCache({
+		typePolicies: {
+			Query: {
+				fields: {
+					posts: {
+						keyArgs: false,
+
+						// TODO: make this more robust
+						// TODO: implenet replay style node and edge based pagination
+						merge(existing = [], incoming) {
+							const test = incoming.slice(1, incoming.length);
+							return !existing.length ? [...existing, ...incoming] : [...existing, ...test];
+						},
+					},
+				},
+			},
+		},
+	}),
 });
 
 interface MyAppProps extends AppProps {
 	emotionCache?: EmotionCache;
 }
-
-// const inter = Inter();
 
 export default function MyApp(props: MyAppProps) {
 	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
@@ -49,8 +63,7 @@ export default function MyApp(props: MyAppProps) {
 				</Head>
 				<ThemeProvider theme={theme}>
 					<CssBaseline />
-					<main>
-						{/* <main className={inter.className}> */}
+					<main style={{ backgroundColor: theme.palette.primary.light }}>
 						<Component {...pageProps} />
 					</main>
 				</ThemeProvider>

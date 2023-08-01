@@ -23,7 +23,9 @@ export const DefaultLayout = ({ children }: Props) => {
 		<StyledContainer maxWidth='xl'>
 			<StyledPaper elevation={1}>
 				<Navbar />
-				<Box p={3}>{children}</Box>
+				<Box py={3} px={{ sm: 2, md: 6, xl: 12 }}>
+					{children}
+				</Box>
 			</StyledPaper>
 		</StyledContainer>
 	);

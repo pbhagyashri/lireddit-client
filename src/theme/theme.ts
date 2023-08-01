@@ -33,6 +33,7 @@ const theme = createTheme({
 		},
 		h2: {
 			fontSize: defaultTheme.typography.pxToRem(28),
+			fontWeight: defaultTheme.typography.fontWeightMedium,
 		},
 		h3: {
 			fontSize: defaultTheme.typography.pxToRem(24),
