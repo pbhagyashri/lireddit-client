@@ -20,7 +20,7 @@ export const Posts = () => {
 			{loading && !posts ? (
 				<Spinner sx={{ minHeight: '70vh' }} message='Loading posts...' />
 			) : (
-				<Grid container spacing={2}>
+				<Grid container spacing={2} minHeight='70vh'>
 					{posts.map((post) => (
 						<Grid item xs={12} md={6} lg={4} key={post.id}>
 							<PostDetails post={post} />

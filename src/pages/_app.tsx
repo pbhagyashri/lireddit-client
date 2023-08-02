@@ -7,7 +7,6 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import createEmotionCache from '@theme/createEmotionCache';
 import theme from '@theme/theme';
-import { Post } from 'src/generated/graphql-types';
 
 const httpLink = createHttpLink({
 	uri: 'http://localhost:4000/graphql',

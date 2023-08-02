@@ -1,10 +1,19 @@
+fragment CreatorFields on User {
+	id
+	username
+}
+
 query Posts($limit: Int!, $cursor: String) {
 	posts(limit: $limit, cursor: $cursor) {
-		createdAt
 		id
+		title
+		createdAt
+		creatorId
 		points
 		text
-		title
-		creatorId
+		updatedAt
+		creator {
+			...CreatorFields
+		}
 	}
 }
