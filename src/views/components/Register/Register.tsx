@@ -27,7 +27,7 @@ export const Register = () => {
 					}
 
 					localStorage.setItem('token', `${data?.register?.token}`);
-					push('/');
+					push('/posts');
 				}}>
 				<Form>
 					<Stack spacing={2} direction='column' width={{ xs: 400, sm: 600 }} pt={5}>

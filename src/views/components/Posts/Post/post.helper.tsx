@@ -15,6 +15,7 @@ export const formatPostTime = (currentDate: Date, date: string) => {
 	if (currentDate.getMonth() === timePosted.getMonth()) {
 		// if less than a day, show num hours
 		if (currentDate.getUTCDate() === timePosted.getUTCDate()) {
+			// TODO: handle case when minuteDiff is less than 60 but the hour changes and hence hourDiff is greater or equal to 1
 			if (hourDiff < 1) {
 				if (minuteDiff === 0) {
 					return 'just now';

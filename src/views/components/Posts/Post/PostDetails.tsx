@@ -27,7 +27,7 @@ export const PostDetails = ({ post }: Props) => {
 	// const handleEditClick = () => {
 	// 	setIsEditMode(true);
 	// };
-	console.log('I was rerendered');
+
 	return (
 		<Card sx={{ minWidth: '100%' }} aria-label='post' role='region'>
 			<CardContent
