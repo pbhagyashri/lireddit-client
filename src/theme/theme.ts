@@ -26,7 +26,7 @@ const theme = createTheme({
 		},
 	},
 	typography: {
-		fontFamily: ['museo-sans', 'open-sans', 'sans-serif', 'Arial', 'Helvetica Neue', 'Helvetica'].join(','),
+		fontFamily: ['roboto', 'museo-sans', 'open-sans', 'sans-serif', 'Arial', 'Helvetica Neue', 'Helvetica'].join(','),
 		h1: {
 			fontSize: defaultTheme.typography.pxToRem(40),
 			color: palette.primaryColorDark,

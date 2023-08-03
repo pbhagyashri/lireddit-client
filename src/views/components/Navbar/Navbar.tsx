@@ -3,6 +3,7 @@ import { useMe } from '@hooks/useMe';
 import { Box, Link, Stack, Typography, styled } from '@mui/material';
 
 import { useRouter } from 'next/router';
+import { capitalizeFirstLetter } from '~utils/capitalizeFirstLetter';
 
 const StyledNavbar = styled(Stack)`
 	background-color: ${({ theme }) => theme.palette.primary.main};
@@ -16,7 +17,7 @@ export const Navbar = () => {
 	return (
 		<StyledNavbar direction='row' spacing={2} justifyContent='space-between' px={3} py={2}>
 			<Box>
-				<StyledNextLink href='/' label={username || ''} />
+				<StyledNextLink href='/' label={capitalizeFirstLetter(username) || ''} />
 			</Box>
 			<Stack direction='row' spacing={2}>
 				<StyledNextLink href='/posts' label='Home' />
