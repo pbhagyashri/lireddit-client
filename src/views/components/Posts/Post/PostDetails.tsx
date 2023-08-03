@@ -5,7 +5,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useRouter } from 'next/router';
 import { useDeletePost } from '@hooks/useDeletePost';
 import { Post } from 'src/generated/graphql-types';
-import { formatPostTime } from './post.helper';
 import { PostTime } from '@components/Posts/Post/PostTime';
 
 interface Props {
@@ -18,7 +17,6 @@ export const PostDetails = ({ post }: Props) => {
 
 	const {
 		query: { post: isPostDetailsPage },
-		push,
 	} = useRouter();
 
 	const deletePost = useDeletePost();

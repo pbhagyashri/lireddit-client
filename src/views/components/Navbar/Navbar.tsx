@@ -20,7 +20,7 @@ export const Navbar = () => {
 			</Box>
 			<Stack direction='row' spacing={2}>
 				<StyledNextLink href='/posts' label='Home' />
-				{Boolean(username) ? (
+				{username ? (
 					<Typography
 						variant='h6'
 						component={Link}

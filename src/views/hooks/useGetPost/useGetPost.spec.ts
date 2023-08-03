@@ -1,4 +1,3 @@
-import { Post } from '@components/Posts/Post';
 import { useGetPost } from '@hooks/useGetPost';
 import { useGetPostRequestMock } from '@hooks/useGetPost/useGetPost.mock';
 import { renderHook, waitFor } from '@testing-library/react';

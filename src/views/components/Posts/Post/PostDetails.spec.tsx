@@ -1,5 +1,4 @@
 import { render, screen } from '@views/test-helper';
-import userEvent from '@testing-library/user-event';
 import { PostDetails } from './PostDetails';
 
 describe('<PostDetails />', () => {

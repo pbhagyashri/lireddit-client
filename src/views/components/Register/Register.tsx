@@ -11,7 +11,6 @@ const initialValues = {
 	password: '',
 };
 
-const validationSchema = {};
 export const Register = () => {
 	const [registerMutation] = useRegisterUser();
 	const { push } = useRouter();
@@ -22,7 +21,7 @@ export const Register = () => {
 				initialValues={initialValues}
 				onSubmit={async ({ username, password }) => {
 					const { data, errors } = await registerMutation({ variables: { inputs: { username, password } } });
-					if (!!errors) {
+					if (errors) {
 						console.log(errors[0].message);
 					}
 

@@ -25,7 +25,7 @@ const customScreen = within(document.body, queries);
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'queries'>) =>
 	render(ui, { wrapper: AllTheProviders, ...options });
 
-export function apolloMockProviderWrapper(mocks: MockedResponse<Record<string, any>>) {
+export function apolloMockProviderWrapper(mocks: MockedResponse<Record<string, unknown>>) {
 	const wrapper = ({ children }: Props) => (
 		<MockedProvider mocks={[mocks]} addTypename={false}>
 			{children}
