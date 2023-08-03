@@ -1,0 +1,4 @@
+generated/
+
+# ingore all files in the generated file extention
+**/*.generated.*

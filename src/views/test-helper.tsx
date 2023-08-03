@@ -31,6 +31,7 @@ export function apolloMockProviderWrapper(mocks: MockedResponse<Record<string, u
 			{children}
 		</MockedProvider>
 	);
+
 	return wrapper;
 }
 

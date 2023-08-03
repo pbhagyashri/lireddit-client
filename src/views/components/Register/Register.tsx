@@ -22,6 +22,7 @@ export const Register = () => {
 				onSubmit={async ({ username, password }) => {
 					const { data, errors } = await registerMutation({ variables: { inputs: { username, password } } });
 					if (errors) {
+						// eslint-disable-next-line no-console
 						console.log(errors[0].message);
 					}
 

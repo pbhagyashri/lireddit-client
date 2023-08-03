@@ -15,6 +15,7 @@ const httpLink = createHttpLink({
 const authLink = setContext((_, { headers }) => {
 	// get the authentication token from local storage if it exists
 	const token = localStorage.getItem('token');
+
 	// return the headers to the context so httpLink can read them
 	return {
 		headers: {
@@ -39,6 +40,7 @@ const client = new ApolloClient({
 						// TODO: implenet replay style node and edge based pagination
 						merge(existing = [], incoming) {
 							const test = incoming.slice(1, incoming.length);
+
 							return !existing.length ? [...existing, ...incoming] : [...existing, ...test];
 						},
 					},
@@ -54,6 +56,7 @@ interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
 	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+
 	return (
 		<ApolloProvider client={client}>
 			<CacheProvider value={emotionCache}>

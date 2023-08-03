@@ -20,10 +20,13 @@ export const formatPostTime = (currentDate: Date, date: string) => {
 				if (minuteDiff === 0) {
 					return 'just now';
 				}
+
 				return minuteDiff > 1 ? `${minuteDiff} minutes ago` : `${minuteDiff} minute ago`;
 			}
+
 			return hourDiff > 1 ? `${hourDiff} hours ago` : `${hourDiff} hour ago`;
 		}
+
 		// if less than a month but more than a day, show num days
 		return dayDiff > 1 ? `${dayDiff} days ago` : `${dayDiff} day ago`;
 	} else {
