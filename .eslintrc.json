@@ -18,7 +18,6 @@
 		"react/react-in-jsx-scope": "off",
 		"array-bracket-spacing": ["error", "never"],
 		"no-console": "warn",
-		"no-unused-vars": "error",
 		"newline-before-return": "error",
 		"spaced-comment": ["error", "always"],
 		"no-compare-neg-zero": "error",

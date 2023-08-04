@@ -1,6 +1,5 @@
 import { TextField as MUITextField, StandardTextFieldProps, InputLabel, SxProps } from '@mui/material';
 import { useFormTextField } from '@hooks/useFormTextField';
-import { ErrorMessage } from 'formik';
 
 interface Props extends StandardTextFieldProps {
 	label: string;
@@ -10,7 +9,7 @@ interface Props extends StandardTextFieldProps {
 }
 
 export const TextField = ({ label, type, name, sx, ...rest }: Props) => {
-	const { field } = useFormTextField(name);
+	const { field, error, touched } = useFormTextField(name);
 
 	return (
 		<>
@@ -23,10 +22,9 @@ export const TextField = ({ label, type, name, sx, ...rest }: Props) => {
 				sx={{ ...sx }}
 				fullWidth
 				id={label}
-				// error={!!error}
-				// helperText={!!error ? error : undefined}
+				error={Boolean(error) && touched}
+				helperText={(touched && error) || undefined}
 			/>
-			<ErrorMessage name={name} />
 		</>
 	);
 };

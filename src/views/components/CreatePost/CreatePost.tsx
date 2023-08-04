@@ -7,11 +7,17 @@ import { Form, Formik } from 'formik';
 import { useRouter } from 'next/router';
 import { useIsAuth } from '~utils/useIsAuth';
 import { CreatePostMutationVariables } from '@hooks/useCreatePost/useCreatePost.generated';
+import * as Yup from 'yup';
 
 const initialValues: CreatePostMutationVariables = {
 	title: '',
 	text: '',
 };
+
+const CreatePostValidationSchema = Yup.object().shape({
+	title: Yup.string().required('Required'),
+	text: Yup.string().required('Required'),
+});
 
 export const CreatePost = () => {
 	const [createPostMutation] = useCreatePost();
@@ -28,7 +34,7 @@ export const CreatePost = () => {
 
 	return (
 		<FormWrapper>
-			<Formik initialValues={initialValues} onSubmit={handleCreatePost}>
+			<Formik initialValues={initialValues} validationSchema={CreatePostValidationSchema} onSubmit={handleCreatePost}>
 				<Form>
 					<Stack spacing={2} direction='column' width={{ xs: 400, sm: 600 }} pt={5}>
 						<Typography variant='h1'>Create Post</Typography>

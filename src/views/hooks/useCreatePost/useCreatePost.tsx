@@ -4,7 +4,7 @@ import { useCreatePostMutation, CreatePostMutationOptions } from './useCreatePos
 export function useCreatePost(options?: CreatePostMutationOptions) {
 	const [createPostMutation, { data, loading, error }] = useCreatePostMutation({
 		...options,
-		refetchQueries: [PostsDocument],
+		refetchQueries: [{ query: PostsDocument, variables: { limit: 6 } }],
 	});
 
 	return [createPostMutation, { data, loading, error }] as const;
