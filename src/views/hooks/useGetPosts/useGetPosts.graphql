@@ -1,19 +1,20 @@
-fragment CreatorFields on User {
-	id
-	username
-}
-
-query Posts($limit: Int!, $cursor: String) {
-	posts(limit: $limit, cursor: $cursor) {
-		id
-		title
-		createdAt
-		creatorId
-		points
-		text
-		updatedAt
-		creator {
-			...CreatorFields
+query GetPosts($inputs: GetPostsRequestBody!) {
+	getPosts(inputs: $inputs) {
+		posts {
+			id
+			title
+			content
+			likes
+			author {
+				id
+				username
+				email
+			}
+			authorId
+			createdAt
+			updatedAt
 		}
+		hasNextPage
+		hasPreviousPage
 	}
 }

@@ -7,39 +7,42 @@ import { TextField } from '@components/TextField';
 import { Button } from '@components/Button';
 import * as Yup from 'yup';
 import { LoginMutationVariables } from '@hooks/useLoginUser/useLoginUserMutation.generated';
+import { useRecoilState } from 'recoil';
+import { authState } from '@views/atoms/authAtom';
 
 const initialValues = {
-	username: '',
+	email: '',
 	password: '',
 };
 
 const LoginValidationSchema = Yup.object().shape({
-	username: Yup.string().required('Required'),
+	email: Yup.string().required('Required'),
 	password: Yup.string().required('Required'),
 });
 
 export const Login = () => {
-	const { push, query } = useRouter();
-	const [loginMutation] = useLoginUser();
+	const { push } = useRouter();
+	const [loginMutation, { loading }] = useLoginUser();
+
+	const [auth, setAuth] = useRecoilState(authState);
+
+	if (loading) return <div>Loading...</div>;
 
 	const handleSubmit = async (
 		payload: LoginMutationVariables['inputs'],
 		setErrors: (errors: FormikErrors<LoginMutationVariables['inputs']>) => void,
 	) => {
-		const { username, password } = payload;
+		const { email, password } = payload;
 
 		try {
 			const { data } = await loginMutation({
-				variables: { inputs: { username, password } },
+				variables: { inputs: { email, password } },
 			});
 
-			localStorage.setItem('token', `${data?.login}`);
+			// set token to application state
+			setAuth(data?.login?.accessToken as string);
 
-			if (typeof query.next === 'string') {
-				push(query.next);
-			} else {
-				push('/posts');
-			}
+			push('/posts?limit=4');
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		} catch (error: any) {
 			setErrors({ [error?.graphQLErrors[0].extensions.argumentName]: error?.message });
@@ -55,7 +58,7 @@ export const Login = () => {
 				<Form>
 					<Stack spacing={2} direction='column' width={{ xs: 400, sm: 600 }} pt={5}>
 						<Typography variant='h1'>Login</Typography>
-						<TextField label='Username' type='text' name='username' placeholder='please enter your username' />
+						<TextField label='Email' type='text' name='email' placeholder='please enter your email' />
 						<TextField label='Password' type='password' name='password' placeholder='please enter your password' />
 						<Stack direction='row-reverse'>
 							<Button variant='contained' type='submit' label='Login' />

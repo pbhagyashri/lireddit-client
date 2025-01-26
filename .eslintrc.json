@@ -27,6 +27,7 @@
 		"no-duplicate-case": "error",
 		"no-empty": "error",
 		"no-duplicate-imports": "error",
-		"no-empty-character-class": "error"
+		"no-empty-character-class": "error",
+		"@typescript-eslint/no-unused-vars": "warn"
 	}
 }
