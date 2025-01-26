@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 interface Props extends LinkProps {
 	href: string;
-	label: string;
+	label?: string;
 	sx?: LinkProps['sx'];
 }
 

@@ -1,11 +1,16 @@
-mutation CreatePost($title: String!, $text: String!) {
-	createPost(title: $title, text: $text) {
-		title
+mutation CreatePost($inputs: CreatePostRequestBody!) {
+	createPost(inputs: $inputs) {
 		id
-		text
-		points
-		updatedAt
-		creatorId
+		title
+		content
+		likes
+		author {
+			id
+			username
+			email
+		}
+		authorId
 		createdAt
+		updatedAt
 	}
 }

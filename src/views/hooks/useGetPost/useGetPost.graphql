@@ -1,14 +1,16 @@
-query Post($postId: ID!) {
-	post(id: $postId) {
+query GetPost($getPostId: String!) {
+	getPost(id: $getPostId) {
 		id
-		points
-		text
-		updatedAt
 		title
-		creatorId
-		createdAt
-		creator {
-			...CreatorFields
+		content
+		likes
+		author {
+			id
+			username
+			email
 		}
+		authorId
+		createdAt
+		updatedAt
 	}
 }

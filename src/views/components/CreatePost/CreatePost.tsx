@@ -27,7 +27,7 @@ export const CreatePost = () => {
 	useIsAuth();
 
 	const handleCreatePost = async (formValues: CreatePostMutationVariables) => {
-		const { title, text } = formValues;
+		const { title, content } = formValues;
 		await createPostMutation({ variables: { title, text } });
 		push('/posts');
 	};
