@@ -1,11 +1,11 @@
-import { usePostQuery } from './useGetPost.generated';
+import { useGetPostQuery } from '@hooks/useGetPost/useGetPost.generated';
 
 export function useGetPost(postId: string) {
-	const { data, loading, error } = usePostQuery({
+	const { data, loading, error } = useGetPostQuery({
 		variables: {
-			postId,
+			getPostId: postId,
 		},
 	});
 
-	return { post: data?.post, loading, error };
+	return { post: data?.getPost, loading, error };
 }

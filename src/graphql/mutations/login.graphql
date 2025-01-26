@@ -1,3 +1,12 @@
-mutation Login($inputs: UserInputs!) {
-	login(inputs: $inputs)
+mutation Login($inputs: LoginRequestBody!) {
+	login(inputs: $inputs) {
+		user {
+			id
+			username
+			email
+			createdAt
+			updatedAt
+		}
+		accessToken
+	}
 }

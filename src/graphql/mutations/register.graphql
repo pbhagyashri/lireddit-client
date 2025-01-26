@@ -1,11 +1,12 @@
-mutation Register($inputs: UserInputs!) {
+mutation Register($inputs: RegisterRequestBody!) {
 	register(inputs: $inputs) {
-		token
 		user {
 			id
 			username
-			updatedAt
+			email
 			createdAt
+			updatedAt
 		}
+		accessToken
 	}
 }

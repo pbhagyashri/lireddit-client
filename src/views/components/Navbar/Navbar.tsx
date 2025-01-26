@@ -12,12 +12,13 @@ const StyledNavbar = styled(Stack)`
 export const Navbar = () => {
 	const { push } = useRouter();
 	const { me } = useMe();
+
 	const { username } = me || {};
 
 	return (
 		<StyledNavbar direction='row' spacing={2} justifyContent='space-between' px={3} py={2}>
 			<Box>
-				<StyledNextLink href='/' label={capitalizeFirstLetter(username) || ''} />
+				<StyledNextLink href='/' label={capitalizeFirstLetter(username)} />
 			</Box>
 			<Stack direction='row' spacing={2}>
 				<StyledNextLink href='/posts' label='Home' />
